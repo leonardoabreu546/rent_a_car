@@ -6,13 +6,18 @@ def mostrar_login():
     return email,senha
 
 def main():
-    email, senha = mostrar_login()
 
-    if email=="ola" and senha=="123":
-        print("login com sucesso!")
-    else:
-        print("login invalido.")
-        mostrar_login()
+    while True:
+        # xx 123
+        email, senha = mostrar_login()
+
+        if email=="ola" and senha=="123":
+            print("login com sucesso!")
+            input("o que queres fazer")
+
+        else:
+            print("login invalido.")
+
 
 
 
