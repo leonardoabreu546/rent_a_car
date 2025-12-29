@@ -5,20 +5,23 @@ def mostrar_login():
     print("(Deixar em branco se for cliente)")
     return email,senha
 
+def mostrar_menu_cliente(email):
+    print("MENU CLIENTE")
+    print(f"Utillizador: {email}")
+    print("O que deseja fazer?")
+    opçao = input("escolha 1 para efetuar reserva, 2 para consultar historico de reservas e 3 para sair.")
+    return opçao
+
 def main():
 
     while True:
-        # ola 123
         email, senha = mostrar_login()
 
         if email=="ola" and senha=="123":
             print("login com sucesso!")
 
             while True:
-                print("MENU CLIENTE")
-                print(f"Utillizador: {email}")
-                print("O que deseja fazer?")
-                opçao=input("escolha 1 para efetuar reserva, 2 para consultar historico de reservas e 3 para sair.")
+                opçao = mostrar_menu_cliente(email)
 
                 if opçao=="1":
                     print("menu reserva")
