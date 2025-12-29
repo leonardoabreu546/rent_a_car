@@ -24,7 +24,7 @@ def main():
     while True:
         email, senha = mostrar_login()
 
-        if email=="ola" and senha=="123":
+        if email=="a" and senha=="123" or email=="b" and senha=="456" or email=="c" and senha=="789" or email=="d" and senha=="999":
             print("login com sucesso!")
 
             while True:
@@ -49,6 +49,7 @@ def main():
                 opcao = mostrar_menu_admin(email)
                 if opcao=="1":
                     print("menu gerir frota")
+                    input("qual frota:")
                 elif opcao=="2":
                     print("menu gerir classe")
                     input("qual classe:")
