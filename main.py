@@ -9,8 +9,15 @@ def mostrar_menu_cliente(email):
     print("MENU CLIENTE")
     print(f"Utillizador: {email}")
     print("O que deseja fazer?")
-    opçao = input("escolha 1 para efetuar reserva, 2 para consultar historico de reservas e 3 para sair.")
-    return opçao
+    opcao = input("Escolha: \n1-para efetuar reserva \n2-para consultar historico de reservas \n3-para sair\n")
+    return opcao
+
+def mostrar_menu_admin(email):
+    print("PAINEL DE ADMINISTRADOR")
+    print(f"Utillizador: {email}")
+    print("O que deseja fazer?")
+    opcao = input("Escolha: \n1-para gerir frota \n2-para gerir classes \n3-para extrato diário \n4-para estatíticas \n5-para sair\n")
+    return opcao
 
 def main():
 
@@ -21,24 +28,41 @@ def main():
             print("login com sucesso!")
 
             while True:
-                opçao = mostrar_menu_cliente(email)
+                opcao = mostrar_menu_cliente(email)
 
-                if opçao=="1":
+                if opcao=="1":
                     print("menu reserva")
-                    input("qual reserva")
+                    input("qual reserva:")
                     # voltar
-                elif opçao=="2":
+                elif opcao=="2":
                     print("historico de reservas")
-                    input("qual historico")
-                elif opçao=="3":
+                    input("qual historico:")
+                elif opcao=="3":
                     print("vou sair do ciclo")
+                    input("qual vou sair do ciclo:")
                     break
 
+        # Validar administrador
+        elif email=="admin" and senha=="456":
+            # Mostrar menu administrador
+            while True:
+                opcao = mostrar_menu_admin(email)
+                if opcao=="1":
+                    print("menu gerir frota")
+                elif opcao=="2":
+                    print("menu gerir classe")
+                    input("qual classe:")
+                elif opcao=="3":
+                    print("menu definições gerais ")
+                    input("quais definiçoes:")
+                elif opcao=="4":
+                    print("extrato diário")
+                    input("qual extrato:")
+                elif opcao =="5":
+                    print("sair")
+                    break
         else:
             print("login invalido.")
-
-
-
 
 
 
