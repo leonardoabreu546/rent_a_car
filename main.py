@@ -8,15 +8,34 @@ def mostrar_login():
 def main():
 
     while True:
-        # xx 123
+        # ola 123
         email, senha = mostrar_login()
 
         if email=="ola" and senha=="123":
             print("login com sucesso!")
-            input("o que queres fazer")
+
+            while True:
+                print("MENU CLIENTE")
+                print(f"Utillizador: {email}")
+                print("O que deseja fazer?")
+                opçao=input("escolha 1 para efetuar reserva, 2 para consultar historico de reservas e 3 para sair.")
+
+                if opçao=="1":
+                    print("menu reserva")
+                    input("qual reserva")
+                    # voltar
+                elif opçao=="2":
+                    print("historico de reservas")
+                    input("qual historico")
+                elif opçao=="3":
+                    print("vou sair do ciclo")
+                    break
 
         else:
             print("login invalido.")
+
+
+
 
 
 
