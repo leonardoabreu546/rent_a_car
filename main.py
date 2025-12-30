@@ -1,11 +1,14 @@
 import json
-
+import  os
 from io_json import carregar_utilizadores,  guardar_utilizadores
 from ecras import mostrar_login, mostrar_menu_cliente, mostrar_menu_admin
 
 def main():
     utilizadores= carregar_utilizadores()
-
+    carros = [
+        {"marca": "BMW", "matrícula": "XX-XX-XX", "modelo": "z3", "classe": "1", "estado": "ativo"},
+        {"marca": "Toyota", "matrícula": "YY-YY-YY", "modelo": "corola", "classe": "2", "estado": "ativo"}
+    ]
 
     while True:
         email, senha = mostrar_login()
@@ -55,11 +58,9 @@ def main():
             while True:
                 opcao = mostrar_menu_admin(email)
                 if opcao=="1":
+                    os.system("cls")
                     print("GESTÃO DE FROTA")
-                    carros=[
-                        {"marca":"BMW", "matrícula": "XX-XX-XX", "modelo": "z3", "classe": "1", "estado":"ativo"},
-                        {"marca":"Toyota", "matrícula": "YY-YY-YY", "modelo": "corola", "classe": "2", "estado":"ativo"}
-                    ]
+
                     for carro in carros:
                         print(f"{carro["marca"]} {carro["matrícula"]} {carro['modelo']} {carro['classe']} {carro['estado']}")
 
