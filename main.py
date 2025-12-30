@@ -1,6 +1,6 @@
 import json
 
-from io_json import carregar_utilizadores, criar_utilizador
+from io_json import carregar_utilizadores,  guardar_utilizadores
 from ecras import mostrar_login, mostrar_menu_cliente, mostrar_menu_admin
 
 def main():
