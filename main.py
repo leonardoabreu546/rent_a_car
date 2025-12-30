@@ -38,14 +38,14 @@ def main():
 
                 if opcao=="1":
                     print("menu reserva")
-                    input("qual reserva:")
+
                     # voltar
                 elif opcao=="2":
                     print("historico de reservas")
-                    input("qual historico:")
+
                 elif opcao=="3":
                     print("vou sair do ciclo")
-                    input("qual vou sair do ciclo:")
+
                     break
 
         # Validar administrador
@@ -55,24 +55,36 @@ def main():
             while True:
                 opcao = mostrar_menu_admin(email)
                 if opcao=="1":
-                    print("menu gerir frota")
-                    input("qual frota:")
+                    print("GESTÃO DE FROTA")
+                    carros=[
+                        {"marca":"BMW", "matrícula": "XX-XX-XX", "modelo": "z3", "classe": "1", "estado":"ativo"},
+                        {"marca":"Toyota", "matrícula": "YY-YY-YY", "modelo": "corola", "classe": "2", "estado":"ativo"}
+                    ]
+                    for carro in carros:
+                        print(f"{carro["marca"]} {carro["matrícula"]} {carro['modelo']} {carro['classe']} {carro['estado']}")
+
+                    print("")
+                    print("1- Adicionar carro")
+                    print("2- Editar carro")
+                    print("3- Remover carro")
+                    print("4- Voltar ao menu principal")
+                    input("Introduzir opção: ")
+
                 elif opcao=="2":
                     print("menu gerir classe")
-                    input("qual classe:")
+
+
                 elif opcao=="3":
                     print("menu definições gerais ")
-                    input("quais definiçoes:")
 
                 elif opcao=="4":
                     print("extrato diário")
-                    input("qual extrato:")
+
                 elif opcao =="5":
                     print("sair")
                     break
         else:
             print("login invalido.")
-
 
 
 
