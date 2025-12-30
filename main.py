@@ -1,18 +1,11 @@
+import json
 from ecras import mostrar_login, mostrar_menu_cliente, mostrar_menu_admin
-
 def main():
+    with open("utilizadores.json", "r", encoding="utf-8") as f:
+        utilizadores = json.load(f)
 
     while True:
         email, senha = mostrar_login()
-
-        utilizadores=[
-            {"email": "a",     "senha": "123", "tipo": "utilizador"},
-            {"email": "b",     "senha": "456", "tipo": "utilizador"},
-            {"email": "c",     "senha": "789", "tipo": "utilizador"},
-            {"email": "d",     "senha": "888", "tipo": "utilizador"},
-            {"email": "admin", "senha": "999", "tipo": "admin"},
-            {"email": "admin2", "senha": "998", "tipo": "admin"}
-        ]
 
         valido = False
         utilizador=""
