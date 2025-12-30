@@ -6,17 +6,25 @@ from ecras import mostrar_login, mostrar_menu_cliente, mostrar_menu_admin
 def main():
     utilizadores= carregar_utilizadores()
 
+
     while True:
         email, senha = mostrar_login()
-
         valido = False
         utilizador=""
+        criar=True
+
         for utilizadorValidar in utilizadores:
+
+            if email==utilizadorValidar["email"]:
+                criar=False
+
             if email==utilizadorValidar["email"] and senha==utilizadorValidar["senha"]:
                 valido = True
                 utilizador= utilizadorValidar
                 break
 
+        if criar==True:
+            print("Criar")
 
         if valido==True and utilizador["tipo"]=="utilizador":
             print("login com sucesso!")
