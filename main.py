@@ -1,7 +1,6 @@
-import json
-import  os
 from io_json import carregar_utilizadores,  guardar_utilizadores
-from ecras import mostrar_login, mostrar_menu_cliente, mostrar_menu_admin
+from ecras import mostrar_login, mostrar_menu_cliente, mostrar_menu_admin, mostrar_gestao_de_frota, mostrar_adicionar_carro
+
 
 def main():
     utilizadores= carregar_utilizadores()
@@ -58,26 +57,12 @@ def main():
             while True:
                 opcao = mostrar_menu_admin(email)
                 if opcao=="1":
-                    os.system("cls")
-                    print("GESTÃO DE FROTA")
+                    opcao=mostrar_gestao_de_frota(carros)
 
-                    for carro in carros:
-                        print(f"{carro["marca"]} {carro["matrícula"]} {carro['modelo']} {carro['classe']} {carro['estado']}")
 
-                    print("")
-                    print("1- Adicionar carro")
-                    print("2- Editar carro")
-                    print("3- Remover carro")
-                    print("4- Voltar ao menu principal")
-                    opcao=input("Introuzir opção: ")
+
                     if opcao=="1":
-                        print("ADICIONAR CARRO")
-                        marca=input("Intoduizir marca: ")
-                        matricula=input("Intoduizir matrícula: ")
-                        modelo=input("Intoduizir modelo: ")
-                        classe = input("Intoduizir classe: ")
-                        estado=input("Intoduizir estado: ")
-                        carro={"marca": marca, "matrícula": matricula, "modelo": modelo, "classe": classe, "estado": estado}
+                        carro=mostrar_adicionar_carro()
                         carros.append(carro)
 
                 elif opcao=="2":

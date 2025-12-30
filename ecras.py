@@ -1,3 +1,4 @@
+import os
 def mostrar_login():
     print("Bem-vindo à Rent-a-Car (Projeto)")
     email = input("Digite seu e-mail: ")
@@ -18,3 +19,28 @@ def mostrar_menu_admin(email):
     print("O que deseja fazer?")
     opcao = input("Escolha: \n1-para gerir frota \n2-para gerir classes \n3-para extrato diário \n4-para estatíticas \n5-para sair\n")
     return opcao
+
+def mostrar_gestao_de_frota(carros):
+    os.system("cls")
+    print("GESTÃO DE FROTA")
+
+    for carro in carros:
+        print(f"{carro["marca"]} {carro["matrícula"]} {carro['modelo']} {carro['classe']} {carro['estado']}")
+
+    print("")
+    print("1- Adicionar carro")
+    print("2- Editar carro")
+    print("3- Remover carro")
+    print("4- Voltar ao menu principal")
+    opcao = input("Introuzir opção: ")
+    return opcao
+
+def mostrar_adicionar_carro():
+    print("ADICIONAR CARRO")
+    marca = input("Intoduizir marca: ")
+    matricula = input("Intoduizir matrícula: ")
+    modelo = input("Intoduizir modelo: ")
+    classe = input("Intoduizir classe: ")
+    estado = input("Intoduizir estado: ")
+    carro = {"marca": marca, "matrícula": matricula, "modelo": modelo, "classe": classe, "estado": estado}
+    return carro
