@@ -69,7 +69,16 @@ def main():
                     print("2- Editar carro")
                     print("3- Remover carro")
                     print("4- Voltar ao menu principal")
-                    input("Introduzir opção: ")
+                    opcao=input("Introuzir opção: ")
+                    if opcao=="1":
+                        print("ADICIONAR CARRO")
+                        marca=input("Intoduizir marca: ")
+                        matricula=input("Intoduizir matrícula: ")
+                        modelo=input("Intoduizir modelo: ")
+                        classe = input("Intoduizir classe: ")
+                        estado=input("Intoduizir estado: ")
+                        carro={"marca": marca, "matrícula": matricula, "modelo": modelo, "classe": classe, "estado": estado}
+                        carros.append(carro)
 
                 elif opcao=="2":
                     print("menu gerir classe")
