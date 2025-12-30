@@ -29,6 +29,9 @@ def main():
             valido=True
             utilizador= novo_utilizador
 
+            with open("utilizadores.json", "w", encoding="utf-8") as f:
+                json.dump(utilizadores, f, indent=4, ensure_ascii=False)
+
         if valido==True and utilizador["tipo"]=="utilizador":
             print("login com sucesso!")
 
