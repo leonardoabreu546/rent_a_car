@@ -44,3 +44,20 @@ def mostrar_adicionar_carro():
     estado = input("Intoduizir estado: ")
     carro = {"marca": marca, "matrícula": matricula, "modelo": modelo, "classe": classe, "estado": estado}
     return carro
+
+def mostrar_adicionar_classe():
+    print("ECRÃ ADICIONAR CLASSE")
+    nome = input("Introduza o nome  classe: ")
+    classe = {"nome": nome}
+    return classe
+
+def mostrar_gerir_classe(classes):
+    print("MENU GERIR CLASSE")
+    for classe in classes:
+        print(f"{classe["nome"]}")
+    print("1-Adicionar classe")
+    print("2-Editar classe (Selecionar ID)")
+    print("3-Remover classe")
+    print("4-Voltar ao menu principal")
+    opcao = input("Escolha: ")
+    return opcao
