@@ -29,18 +29,20 @@ def main():
             {"email": "b",     "senha": "456", "tipo": "utilizador"},
             {"email": "c",     "senha": "789", "tipo": "utilizador"},
             {"email": "d",     "senha": "888", "tipo": "utilizador"},
-            {"email": "admin", "senha": "999", "tipo": "admin"}
+            {"email": "admin", "senha": "999", "tipo": "admin"},
+            {"email": "admin2", "senha": "998", "tipo": "admin"}
         ]
 
         valido = False
-
-        for utilizador in utilizadores:
-            if email==utilizador["email"] and senha==utilizador["senha"]:
+        utilizador=""
+        for utilizadorValidar in utilizadores:
+            if email==utilizadorValidar["email"] and senha==utilizadorValidar["senha"]:
                 valido = True
+                utilizador= utilizadorValidar
                 break
 
 
-        if valido==True:
+        if valido==True and utilizador["tipo"]=="utilizador":
             print("login com sucesso!")
 
             while True:
@@ -59,7 +61,8 @@ def main():
                     break
 
         # Validar administrador
-        elif email=="admin" and senha=="999":
+        elif valido==True and utilizador["tipo"]=="admin":
+            print("login com sucesso!")
             # Mostrar menu administrador
             while True:
                 opcao = mostrar_menu_admin(email)
@@ -72,6 +75,7 @@ def main():
                 elif opcao=="3":
                     print("menu definições gerais ")
                     input("quais definiçoes:")
+
                 elif opcao=="4":
                     print("extrato diário")
                     input("qual extrato:")
