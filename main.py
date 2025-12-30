@@ -24,17 +24,18 @@ def main():
     while True:
         email, senha = mostrar_login()
 
-        utilizadores={
-            "a":"123",
-            "b":"456",
-            "c":"789",
-            "d":"888"
-        }
+        utilizadores=[
+            {"email": "a",     "senha": "123", "tipo": "utilizador"},
+            {"email": "b",     "senha": "456", "tipo": "utilizador"},
+            {"email": "c",     "senha": "789", "tipo": "utilizador"},
+            {"email": "d",     "senha": "888", "tipo": "utilizador"},
+            {"email": "admin", "senha": "999", "tipo": "admin"}
+        ]
 
         valido = False
 
-        for emailxixi, senhacoco in utilizadores.items():
-            if email==emailxixi and senhacoco==senha:
+        for utilizador in utilizadores:
+            if email==utilizador["email"] and senha==utilizador["senha"]:
                 valido = True
                 break
 
