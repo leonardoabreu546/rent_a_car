@@ -8,7 +8,10 @@ def main():
         {"marca": "BMW", "matrícula": "XX-XX-XX", "modelo": "z3", "classe": "1", "estado": "ativo"},
         {"marca": "Toyota", "matrícula": "YY-YY-YY", "modelo": "corola", "classe": "2", "estado": "ativo"}
     ]
-
+    classes = [
+        {"nome": "económico"},
+        {"nome": "compacto"}
+    ]
     while True:
         email, senha = mostrar_login()
         valido = False
@@ -58,15 +61,26 @@ def main():
                 opcao = mostrar_menu_admin(email)
                 if opcao=="1":
                     opcao=mostrar_gestao_de_frota(carros)
-
-
-
                     if opcao=="1":
                         carro=mostrar_adicionar_carro()
                         carros.append(carro)
 
                 elif opcao=="2":
-                    print("menu gerir classe")
+                    print("MENU GERIR CLASSE")
+                    for classe in classes:
+                        print(f"{classe["nome"]}")
+                    print("1-Adicionar classe")
+                    print("2-Editar classe (Selecionar ID)")
+                    print("3-Remover classe")
+                    print("4-Voltar ao menu principal")
+                    opcao=input("Escolha: ")
+                    if opcao=="1":
+                        print("ECRÃ ADICIONAR CLASSE")
+                        nome=input("Introduza o nome  classe: ")
+                        classe={"nome": nome}
+                        classes.append(classe)
+
+
 
 
                 elif opcao=="3":
