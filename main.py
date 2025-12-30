@@ -14,7 +14,6 @@ def main():
         criar=True
 
         for utilizadorValidar in utilizadores:
-
             if email==utilizadorValidar["email"]:
                 criar=False
 
@@ -23,8 +22,12 @@ def main():
                 utilizador= utilizadorValidar
                 break
 
+        #J 123
         if criar==True:
-            print("Criar")
+            novo_utilizador={"email": email ,     "senha": senha, "tipo": "utilizador"}
+            utilizadores.append(novo_utilizador)
+            valido=True
+            utilizador= novo_utilizador
 
         if valido==True and utilizador["tipo"]=="utilizador":
             print("login com sucesso!")
