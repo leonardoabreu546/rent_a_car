@@ -24,7 +24,22 @@ def main():
     while True:
         email, senha = mostrar_login()
 
-        if email=="a" and senha=="123" or email=="b" and senha=="456" or email=="c" and senha=="789" or email=="d" and senha=="999":
+        utilizadores={
+            "a":"123",
+            "b":"456",
+            "c":"789",
+            "d":"888"
+        }
+
+        valido = False
+
+        for emailxixi, senhacoco in utilizadores.items():
+            if email==emailxixi and senhacoco==senha:
+                valido = True
+                break
+
+
+        if valido==True:
             print("login com sucesso!")
 
             while True:
@@ -43,7 +58,7 @@ def main():
                     break
 
         # Validar administrador
-        elif email=="admin" and senha=="456":
+        elif email=="admin" and senha=="999":
             # Mostrar menu administrador
             while True:
                 opcao = mostrar_menu_admin(email)
