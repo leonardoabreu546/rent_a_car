@@ -1,6 +1,6 @@
 import json
 
-from io_json import carregar_utilizadores
+from io_json import carregar_utilizadores, criar_utilizador
 from ecras import mostrar_login, mostrar_menu_cliente, mostrar_menu_admin
 
 def main():
@@ -28,9 +28,7 @@ def main():
             utilizadores.append(novo_utilizador)
             valido=True
             utilizador= novo_utilizador
-
-            with open("utilizadores.json", "w", encoding="utf-8") as f:
-                json.dump(utilizadores, f, indent=4, ensure_ascii=False)
+            guardar_utilizadores(utilizadores)
 
         if valido==True and utilizador["tipo"]=="utilizador":
             print("login com sucesso!")
@@ -74,6 +72,7 @@ def main():
                     break
         else:
             print("login invalido.")
+
 
 
 
