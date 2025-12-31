@@ -5,13 +5,20 @@ from ecras import mostrar_login, mostrar_menu_cliente, mostrar_menu_admin, mostr
 def main():
     utilizadores= carregar_utilizadores()
     carros = [
-        {"marca": "BMW", "matrícula": "XX-XX-XX", "modelo": "z3", "classe": "1", "estado": "ativo"},
-        {"marca": "Toyota", "matrícula": "YY-YY-YY", "modelo": "corola", "classe": "2", "estado": "ativo"}
+        {"marca": "BMW", "matrícula": "XX-XX-XX", "modelo": 76, "classe": "1", "estado": "ativo"},
+        {"marca": "Toyota", "matrícula": 5, "modelo": "corola", "classe": "2", "estado": "ativo"}
     ]
     classes = [
         {"nome": "económico"},
         {"nome": "compacto"}
     ]
+    definicoes={
+    "max_dias" : 15,
+    "desconto_3" : 0,
+    "desconto_4_7" : 10,
+    "desconto_7": 20
+    }
+
     while True:
         email, senha = mostrar_login()
         valido = False
@@ -62,6 +69,8 @@ def main():
                 # gestao de frota
                 if opcao=="1":
                     opcao=mostrar_gestao_de_frota(carros)
+
+                    # adicionar carro
                     if opcao=="1":
                         carro=mostrar_adicionar_carro()
                         carros.append(carro)
@@ -75,14 +84,30 @@ def main():
                         classes.append(classe)
 
                 elif opcao=="3":
-                    print("menu definições gerais ")
 
+                    print("DEFINIÇÕES GERAIS")
+                    print("")
+                    print(f"Máximo de dias de reserva: {definicoes["max_dias"]}")
+                    print("")
+                    print("Descontos (%):")
+                    print("")
+
+                    print(f"Até 3 dias: {definicoes["desconto_3"]}")
+                    print(f"De 4 a 7 dias: {definicoes["desconto_4_7"]} ")
+                    print(f"Mais de 7 dias: {definicoes["desconto_7"]}")
+                    print("")
+                    print("1-Editar")
+                    print("2-Voltar")
+                    input("Escolha: ")
+                    guardar_utilizadores(utilizadores)
                 elif opcao=="4":
                     print("extrato diário")
 
                 elif opcao =="5":
                     print("sair")
                     break
+
+
         else:
             print("login invalido.")
 

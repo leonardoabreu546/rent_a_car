@@ -17,7 +17,13 @@ def mostrar_menu_admin(email):
     print("PAINEL DE ADMINISTRADOR")
     print(f"Utillizador: {email}")
     print("O que deseja fazer?")
-    opcao = input("Escolha: \n1-para gerir frota \n2-para gerir classes \n3-para extrato diário \n4-para estatíticas \n5-para sair\n")
+
+    print("1-para gerir frota")
+    print("2-para gerir classes")
+    print("3-definições gerais")
+    print("4-para estatíticas")
+    print("5-para sair")
+    opcao = input("Escolha: ")
     return opcao
 
 def mostrar_gestao_de_frota(carros):
