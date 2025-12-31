@@ -7,19 +7,21 @@ from ecras import (mostrar_login, mostrar_menu_cliente, mostrar_menu_admin,
 def main():
     utilizadores= carregar_utilizadores()
     carros = [
-        {"marca": "BMW", "matrícula": "XX-XX-XX", "modelo": 76, "classe": "1", "estado": "ativo"},
-        {"marca": "Toyota", "matrícula": 5, "modelo": "corola", "classe": "2", "estado": "ativo"}
+        {"marca": "BMW", "matrícula": "XX-XX-XX", "modelo": "Z3", "classe": "1", "estado": "ativo"},
+        {"marca": "Toyota", "matrícula": "YY-YY-YY", "modelo": "corola", "classe": "2", "estado": "ativo"}
     ]
     classes = [
         {"nome": "económico"},
         {"nome": "compacto"}
     ]
     definicoes={
-    "max_dias" : 15,
+    "max_dias" : 10,
     "desconto_3" : 0,
     "desconto_4_7" : 10,
     "desconto_7": 20
     }
+
+    reservas=[]
 
     while True:
         email, senha = mostrar_login()
@@ -51,11 +53,28 @@ def main():
                 opcao = mostrar_menu_cliente(email)
 
                 if opcao=="1":
-                    print("menu reserva")
+                    print("MENU RESERVA")
+                    print("")
+                    posicao=0
+                    for carro in carros:
+                        posicao += 1
+                        print(f"{posicao}-{carro["marca"]} {carro["matrícula"]} {carro['modelo']} {carro['classe']} {carro['estado']}")
+                    # resolver erro quando nao e int
+                    carro_selecionado=int(input("Escolha o carro: "))
+                    # resolver erro quando nº nao existe
+                    carro=carros[carro_selecionado-1]
+                    dias=input("Quantos dias?: ")
+                    reserva = {
+                        "carro": carro["matrícula"],
+                        "dias": dias,
+                        "user": email
+                    }
+                    reservas.append(reserva)
 
                     # voltar
                 elif opcao=="2":
                     print("historico de reservas")
+                    print(reservas)
 
                 elif opcao=="3":
                     print("vou sair do ciclo")
@@ -87,6 +106,7 @@ def main():
 
                 elif opcao=="3":
                     opcao=mostrar_descontos(definicoes)
+
 
                 elif opcao=="4":
                     print("extrato diário")
