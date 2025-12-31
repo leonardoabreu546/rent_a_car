@@ -1,5 +1,7 @@
 from io_json import carregar_utilizadores,  guardar_utilizadores
-from ecras import mostrar_login, mostrar_menu_cliente, mostrar_menu_admin, mostrar_gestao_de_frota, mostrar_adicionar_carro, mostrar_adicionar_classe, mostrar_gerir_classe
+from ecras import (mostrar_login, mostrar_menu_cliente, mostrar_menu_admin,
+                   mostrar_gestao_de_frota, mostrar_adicionar_carro, mostrar_adicionar_classe,
+                   mostrar_gerir_classe, mostrar_descontos)
 
 
 def main():
@@ -84,22 +86,8 @@ def main():
                         classes.append(classe)
 
                 elif opcao=="3":
+                    opcao=mostrar_descontos(definicoes)
 
-                    print("DEFINIÇÕES GERAIS")
-                    print("")
-                    print(f"Máximo de dias de reserva: {definicoes["max_dias"]}")
-                    print("")
-                    print("Descontos (%):")
-                    print("")
-
-                    print(f"Até 3 dias: {definicoes["desconto_3"]}")
-                    print(f"De 4 a 7 dias: {definicoes["desconto_4_7"]} ")
-                    print(f"Mais de 7 dias: {definicoes["desconto_7"]}")
-                    print("")
-                    print("1-Editar")
-                    print("2-Voltar")
-                    input("Escolha: ")
-                    guardar_utilizadores(utilizadores)
                 elif opcao=="4":
                     print("extrato diário")
 

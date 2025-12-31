@@ -67,3 +67,20 @@ def mostrar_gerir_classe(classes):
     print("4-Voltar ao menu principal")
     opcao = input("Escolha: ")
     return opcao
+
+def mostrar_descontos(definicoes):
+    print("DEFINIÇÕES GERAIS")
+    print("")
+    print(f"Máximo de dias de reserva: {definicoes["max_dias"]}")
+    print("")
+    print("Descontos (%):")
+    print("")
+
+    print(f"Até 3 dias: {definicoes["desconto_3"]}")
+    print(f"De 4 a 7 dias: {definicoes["desconto_4_7"]} ")
+    print(f"Mais de 7 dias: {definicoes["desconto_7"]}")
+    print("")
+    print("1-Editar")
+    print("2-Voltar")
+    opcao=input("Escolha: ")
+    return opcao
