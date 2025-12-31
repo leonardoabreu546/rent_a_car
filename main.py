@@ -1,27 +1,17 @@
-from io_json import carregar_utilizadores,  guardar_utilizadores
+﻿from io_json import (carregar_utilizadores, guardar_utilizadores, guardar_reservas, carregar_carros, carregar_reservas,
+                     guardar_carros, guardar_classes, carregar_classes, carregar_definicoes)
 from ecras import (mostrar_login, mostrar_menu_cliente, mostrar_menu_admin,
                    mostrar_gestao_de_frota, mostrar_adicionar_carro, mostrar_adicionar_classe,
-                   mostrar_gerir_classe, mostrar_descontos, mostrar_criar_reserva, mostrar_histórico_reservas)
+                   mostrar_gerir_classe, mostrar_descontos, mostrar_criar_reserva, mostrar_historico_reservas)
 
 
 def main():
     utilizadores= carregar_utilizadores()
-    carros = [
-        {"marca": "BMW", "matrícula": "XX-XX-XX", "modelo": "Z3", "classe": "1", "estado": "ativo"},
-        {"marca": "Toyota", "matrícula": "YY-YY-YY", "modelo": "corola", "classe": "2", "estado": "ativo"}
-    ]
-    classes = [
-        {"nome": "económico"},
-        {"nome": "compacto"}
-    ]
-    definicoes={
-    "max_dias" : 10,
-    "desconto_3" : 0,
-    "desconto_4_7" : 10,
-    "desconto_7": 20
-    }
+    carros = carregar_carros()
+    classes = carregar_classes()
+    definicoes=carregar_definicoes()
 
-    reservas=[]
+    reservas=carregar_reservas()
 
     while True:
         email, senha = mostrar_login()
@@ -56,10 +46,11 @@ def main():
                 if opcao=="1":
                     reserva=mostrar_criar_reserva(carros, email)
                     reservas.append(reserva)
+                    guardar_reservas(reservas)
 
                     # voltar
                 elif opcao=="2":
-                    mostrar_histórico_reservas(reservas, email)
+                    mostrar_historico_reservas(reservas, email)
 
 
                 elif opcao=="3":
@@ -81,6 +72,8 @@ def main():
                     if opcao=="1":
                         carro=mostrar_adicionar_carro()
                         carros.append(carro)
+                        guardar_carros(carros)
+
                 # gerir classe
                 elif opcao=="2":
                     opcao=mostrar_gerir_classe(classes)
@@ -89,16 +82,17 @@ def main():
                     if opcao=="1":
                         classe=mostrar_adicionar_classe()
                         classes.append(classe)
+                        guardar_classes(classes)
 
                 elif opcao=="3":
                     opcao=mostrar_descontos(definicoes)
 
 
                 elif opcao=="4":
-                    print("extrato diário")
+                    print("EXTRATO DIÁRIO")
 
                 elif opcao =="5":
-                    print("sair")
+                    print("SAIR")
                     break
 
 

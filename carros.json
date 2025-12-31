@@ -1,0 +1,4 @@
+[
+    {"marca": "BMW", "matrícula": "XX-XX-XX", "modelo": "Z3", "classe": "1", "estado": "ativo"},
+    {"marca": "Toyota", "matrícula": "YY-YY-YY", "modelo": "corola", "classe": "1", "estado": "ativo"}
+]

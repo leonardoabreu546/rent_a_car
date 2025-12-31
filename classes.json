@@ -1,0 +1,20 @@
+[
+    {
+        "id": "1",
+        "nome": "económico",
+        "descricao": "Carros pequenos",
+        "preco_dia": 40
+    },
+    {
+        "id": "2",
+        "nome": "compacto",
+        "descricao": "Carros médios",
+        "preco_dia": 40
+    },
+    {
+        "id": "3",
+        "nome": "luxo",
+        "descricao": "rtgyyh",
+        "preco_dia": 40
+    }
+]

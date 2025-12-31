@@ -53,8 +53,13 @@ def mostrar_adicionar_carro():
 
 def mostrar_adicionar_classe():
     print("ECRÃ ADICIONAR CLASSE")
+    id = input("Intoduiza o id: ")
     nome = input("Introduza o nome  classe: ")
-    classe = {"nome": nome}
+    descricao = input("Intoduiza a descricao: ")
+    # tratar erro do inteiro ao introduzir letras
+    preco_dia = int(input("Intoduiza o preço por dia: "))
+
+    classe = {"id":id, "nome": nome, "descricao": descricao, "preco_dia": preco_dia}
     return classe
 
 def mostrar_gerir_classe(classes):
