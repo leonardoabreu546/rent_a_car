@@ -90,7 +90,7 @@ def mostrar_descontos(definicoes):
     opcao=input("Escolha: ")
     return opcao
 
-def mostrar_criar_reserva(carros, email, classes):
+def mostrar_criar_reserva(carros, email, classes, definicoes):
     print("MENU RESERVA")
     print("")
     posicao=0
@@ -105,6 +105,11 @@ def mostrar_criar_reserva(carros, email, classes):
     # resolver erro quando nº nao existe
     carro=carros[carro_selecionado-1]
     dias=int(input("Quantos dias?: "))
+
+    if dias>definicoes["max_dias"]:
+        print("Excedeu o número máximo de dias")
+        dias=definicoes["max_dias"]
+
     reserva = {
         "matricula": carro["matrícula"],
         "dias": dias,
