@@ -1,7 +1,7 @@
 from io_json import carregar_utilizadores,  guardar_utilizadores
 from ecras import (mostrar_login, mostrar_menu_cliente, mostrar_menu_admin,
                    mostrar_gestao_de_frota, mostrar_adicionar_carro, mostrar_adicionar_classe,
-                   mostrar_gerir_classe, mostrar_descontos)
+                   mostrar_gerir_classe, mostrar_descontos, mostrar_criar_reserva)
 
 
 def main():
@@ -52,29 +52,17 @@ def main():
             while True:
                 opcao = mostrar_menu_cliente(email)
 
+                # Criar reserva
                 if opcao=="1":
-                    print("MENU RESERVA")
-                    print("")
-                    posicao=0
-                    for carro in carros:
-                        posicao += 1
-                        print(f"{posicao}-{carro["marca"]} {carro["matrícula"]} {carro['modelo']} {carro['classe']} {carro['estado']}")
-                    # resolver erro quando nao e int
-                    carro_selecionado=int(input("Escolha o carro: "))
-                    # resolver erro quando nº nao existe
-                    carro=carros[carro_selecionado-1]
-                    dias=input("Quantos dias?: ")
-                    reserva = {
-                        "carro": carro["matrícula"],
-                        "dias": dias,
-                        "user": email
-                    }
+                    reserva=mostrar_criar_reserva(carros, email)
                     reservas.append(reserva)
 
                     # voltar
                 elif opcao=="2":
-                    print("historico de reservas")
-                    print(reservas)
+                    print("HISTÓRICO DE RESERVAS")
+                    for reserva in reservas:
+                        if email==reserva["email"]:
+                            print(f"{reserva["matricula"]} {reserva["dias"]} {reserva["email"]}")
 
                 elif opcao=="3":
                     print("vou sair do ciclo")

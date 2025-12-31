@@ -84,3 +84,22 @@ def mostrar_descontos(definicoes):
     print("2-Voltar")
     opcao=input("Escolha: ")
     return opcao
+
+def mostrar_criar_reserva(carros, email):
+    print("MENU RESERVA")
+    print("")
+    posicao=0
+    for carro in carros:
+        posicao += 1
+        print(f"{posicao}-{carro["marca"]} {carro["matrícula"]} {carro['modelo']} {carro['classe']} {carro['estado']}")
+    # resolver erro quando nao e int
+    carro_selecionado=int(input("Escolha o carro: "))
+    # resolver erro quando nº nao existe
+    carro=carros[carro_selecionado-1]
+    dias=input("Quantos dias?: ")
+    reserva = {
+        "matricula": carro["matrícula"],
+        "dias": dias,
+        "email": email
+    }
+    return reserva
