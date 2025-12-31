@@ -1,12 +1,23 @@
 [
     {
         "matricula": "YY-YY-YY",
-        "dias": "5",
-        "email": "a"
+        "dias": 7,
+        "email": "a",
+        "preco_dia": 80,
+        "preco_total": 560
     },
     {
         "matricula": "XX-XX-XX",
-        "dias": "5",
-        "email": "a"
+        "dias": 6,
+        "email": "a",
+        "preco_dia": 80,
+        "preco_total": 480
+    },
+    {
+        "matricula": "XX-XX-XX",
+        "dias": 8,
+        "email": "a",
+        "preco_dia": 80,
+        "preco_total": 640
     }
 ]

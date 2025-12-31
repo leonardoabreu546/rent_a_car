@@ -94,19 +94,23 @@ def mostrar_criar_reserva(carros, email, classes):
     print("MENU RESERVA")
     print("")
     posicao=0
+    classe_escolhida={}
     for carro in carros:
         posicao += 1
         classe_escolhida = next(classe for classe in classes if classe["id"] == carro["classe"])
         print(f"{posicao}-{carro["marca"]} {carro["matrícula"]} {carro['modelo']} {classe_escolhida["preco_dia"]}€ {carro['estado']}")
+
     # resolver erro quando nao e int
     carro_selecionado=int(input("Escolha o carro: "))
     # resolver erro quando nº nao existe
     carro=carros[carro_selecionado-1]
-    dias=input("Quantos dias?: ")
+    dias=int(input("Quantos dias?: "))
     reserva = {
         "matricula": carro["matrícula"],
         "dias": dias,
-        "email": email
+        "email": email,
+        "preco_dia": classe_escolhida["preco_dia"],
+        "preco_total": classe_escolhida["preco_dia"]*dias
     }
     return reserva
 
@@ -114,7 +118,7 @@ def mostrar_historico_reservas(reservas, email):
     print("HISTÓRICO DE RESERVAS")
     for reserva in reservas:
         if email == reserva["email"]:
-            print(f"{reserva["matricula"]} {reserva["dias"]} {reserva["email"]}")
+            print(f"{reserva["matricula"]} {reserva["dias"]} {reserva["preco_dia"]}€ {reserva['preco_total']}€")
     print("0- para sair")
     opcao = input("Escolha: ")
     return opcao
