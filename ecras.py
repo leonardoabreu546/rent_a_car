@@ -90,13 +90,14 @@ def mostrar_descontos(definicoes):
     opcao=input("Escolha: ")
     return opcao
 
-def mostrar_criar_reserva(carros, email):
+def mostrar_criar_reserva(carros, email, classes):
     print("MENU RESERVA")
     print("")
     posicao=0
     for carro in carros:
         posicao += 1
-        print(f"{posicao}-{carro["marca"]} {carro["matrícula"]} {carro['modelo']} {carro['classe']} {carro['estado']}")
+        classe_escolhida = next(classe for classe in classes if classe["id"] == carro["classe"])
+        print(f"{posicao}-{carro["marca"]} {carro["matrícula"]} {carro['modelo']} {classe_escolhida["preco_dia"]}€ {carro['estado']}")
     # resolver erro quando nao e int
     carro_selecionado=int(input("Escolha o carro: "))
     # resolver erro quando nº nao existe

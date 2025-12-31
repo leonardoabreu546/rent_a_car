@@ -44,7 +44,7 @@ def main():
 
                 # Criar reserva
                 if opcao=="1":
-                    reserva=mostrar_criar_reserva(carros, email)
+                    reserva=mostrar_criar_reserva(carros, email, classes)
                     reservas.append(reserva)
                     guardar_reservas(reservas)
 
