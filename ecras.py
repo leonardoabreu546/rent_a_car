@@ -103,3 +103,12 @@ def mostrar_criar_reserva(carros, email):
         "email": email
     }
     return reserva
+
+def mostrar_historico_reservas(reservas, email):
+    print("HISTÓRICO DE RESERVAS")
+    for reserva in reservas:
+        if email == reserva["email"]:
+            print(f"{reserva["matricula"]} {reserva["dias"]} {reserva["email"]}")
+    print("0- para sair")
+    opcao = input("Escolha: ")
+    return opcao

@@ -1,7 +1,7 @@
 from io_json import carregar_utilizadores,  guardar_utilizadores
 from ecras import (mostrar_login, mostrar_menu_cliente, mostrar_menu_admin,
                    mostrar_gestao_de_frota, mostrar_adicionar_carro, mostrar_adicionar_classe,
-                   mostrar_gerir_classe, mostrar_descontos, mostrar_criar_reserva)
+                   mostrar_gerir_classe, mostrar_descontos, mostrar_criar_reserva, mostrar_histórico_reservas)
 
 
 def main():
@@ -59,10 +59,8 @@ def main():
 
                     # voltar
                 elif opcao=="2":
-                    print("HISTÓRICO DE RESERVAS")
-                    for reserva in reservas:
-                        if email==reserva["email"]:
-                            print(f"{reserva["matricula"]} {reserva["dias"]} {reserva["email"]}")
+                    mostrar_histórico_reservas(reservas, email)
+
 
                 elif opcao=="3":
                     print("vou sair do ciclo")
